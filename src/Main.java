@@ -4,6 +4,7 @@ import org.hipparchus.geometry.euclidean.threed.Vector3D;
 import org.orekit.data.DataContext;
 import org.orekit.data.DataProvidersManager;
 import org.orekit.data.DirectoryCrawler;
+import org.orekit.errors.OrekitException;
 import org.orekit.frames.FramesFactory;
 import org.orekit.orbits.*;
 import org.orekit.propagation.analytical.tle.TLE;
@@ -36,36 +37,36 @@ public class Main {
 
         // Initiate connection
         URI uri = null;
-        String html;
         String[] tle = new String[2];
-
+        Scanner in;
         try {
             uri = new URI("https://celestrak.org/NORAD/elements/gp.php?CATNR=25544");
-            URL obj = uri.toURL();
-            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+            URL url = uri.toURL();
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestProperty("User-Agent", "Mozilla/5.0");
             int responseCode = con.getResponseCode();
             System.out.println("Response code: " + responseCode);
-            Scanner in = new Scanner(con.getInputStream());
-            StringBuilder response = new StringBuilder();
-
+            in = new Scanner(con.getInputStream());
             in.nextLine();
             for (int i = 0; i < 2; i++) {
                 tle[i] = in.nextLine();
-           }
-
-
+            }
             in.close();
-        } catch (MalformedURLException | URISyntaxException e) {
+
+       } catch (MalformedURLException | URISyntaxException e) {
             assert uri != null;
             System.out.printf("URL: \"%s\" is invalid.%n", uri);
             System.out.println(e.getMessage());
+
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
 
+        // Use TLE data to create TLE object.
         if (TLE.isFormatOK(tle[0], tle[1])) {
             TLE satellite = new TLE(tle[0], tle[1], TimeScalesFactory.getUTC());
+        } else {
+            System.out.println("TLE format not accepted");
         }
 
 /*        Vector3D position = new Vector3D();
