@@ -9,8 +9,39 @@ import org.orekit.time.TimeScalesFactory;
 import org.orekit.utils.Constants;
 import org.orekit.utils.PVCoordinates;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.*;
+
 public class Main {
     public static void main(String[] args) {
+        URI uri = null;
+        try {
+            uri = new URI("https://celestrak.org/NORAD/elements/gp.php?GROUP=gps-ops&FORMAT=tle");
+            URL obj = uri.toURL();
+            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+            con.setRequestProperty("User-Agent", "Mozilla/5.0");
+            int responseCode = con.getResponseCode();
+            System.out.println("Response code: " + responseCode);
+            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            String inputLine;
+            StringBuilder response = new StringBuilder();
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+            String html = response.toString();
+            System.out.println("HTML: " + html);
+
+        } catch (MalformedURLException | URISyntaxException e) {
+            assert uri != null;
+            System.out.printf("URL: \"%s\" is invalid.%n", uri);
+            System.out.println(e.getMessage());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
 
 
 
