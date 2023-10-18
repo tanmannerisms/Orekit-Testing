@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="hipparchus.geometry" type="repository">
+    <properties maven-id="org.hipparchus:hipparchus-geometry:2.1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/hipparchus/hipparchus-geometry/2.1/hipparchus-geometry-2.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/hipparchus/hipparchus-core/2.1/hipparchus-core-2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/hipparchus/hipparchus-geometry/2.1/hipparchus-geometry-2.1-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/hipparchus/hipparchus-core/2.1/hipparchus-core-2.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

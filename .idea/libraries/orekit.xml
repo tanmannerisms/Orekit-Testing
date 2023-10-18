@@ -1,0 +1,26 @@
+<component name="libraryTable">
+  <library name="orekit" type="repository">
+    <properties maven-id="org.orekit:orekit:11.3.3" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/orekit/orekit/11.3.3/orekit-11.3.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/hipparchus/hipparchus-core/2.3/hipparchus-core-2.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/hipparchus/hipparchus-geometry/2.3/hipparchus-geometry-2.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/hipparchus/hipparchus-ode/2.3/hipparchus-ode-2.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/hipparchus/hipparchus-fitting/2.3/hipparchus-fitting-2.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/hipparchus/hipparchus-optim/2.3/hipparchus-optim-2.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/hipparchus/hipparchus-filtering/2.3/hipparchus-filtering-2.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/hipparchus/hipparchus-stat/2.3/hipparchus-stat-2.3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/orekit/orekit/11.3.3/orekit-11.3.3-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/hipparchus/hipparchus-core/2.3/hipparchus-core-2.3-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/hipparchus/hipparchus-geometry/2.3/hipparchus-geometry-2.3-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/hipparchus/hipparchus-ode/2.3/hipparchus-ode-2.3-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/hipparchus/hipparchus-fitting/2.3/hipparchus-fitting-2.3-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/hipparchus/hipparchus-optim/2.3/hipparchus-optim-2.3-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/hipparchus/hipparchus-filtering/2.3/hipparchus-filtering-2.3-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/hipparchus/hipparchus-stat/2.3/hipparchus-stat-2.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>
