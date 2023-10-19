@@ -6,8 +6,11 @@ import org.orekit.data.DataProvidersManager;
 import org.orekit.data.DirectoryCrawler;
 import org.orekit.errors.OrekitException;
 import org.orekit.frames.FramesFactory;
+import org.orekit.gnss.attitude.GPSBlockIIA;
 import org.orekit.orbits.*;
+import org.orekit.propagation.analytical.tle.SGP4;
 import org.orekit.propagation.analytical.tle.TLE;
+import org.orekit.propagation.analytical.tle.TLEPropagator;
 import org.orekit.time.AbsoluteDate;
 import org.orekit.time.TimeScale;
 import org.orekit.time.TimeScalesFactory;
@@ -45,6 +48,7 @@ public class Main {
         URI uri = null;
         String[] tle = new String[2];
         Scanner in;
+        int PRN = 0;
         try {
             uri = new URI("https://celestrak.org/NORAD/elements/gp.php?CATNR=25544");
             URL url = uri.toURL();
@@ -69,21 +73,17 @@ public class Main {
         }
 
         // Use TLE data to create TLE object.
+        TLE tleObj = null;
         if (TLE.isFormatOK(tle[0], tle[1])) {
-            TLE satellite = new TLE(tle[0], tle[1], TimeScalesFactory.getUTC());
+            tleObj = new TLE(tle[0], tle[1], TimeScalesFactory.getUTC());
         } else {
             System.out.println("TLE format not accepted");
         }
 
-/*        Vector3D position = new Vector3D();
-        Vector3D velocity = new Vector3D();
-        AbsoluteDate initialDate = new AbsoluteDate(2023, 10, 18, 0, 0, 0, TimeScalesFactory.getUTC());
+        if (tleObj != null) {
+            TLEPropagator propagator = new SGP4(tleObj, GPSBlockIIA.getDefaultYawRate(PRN), 1000);
+        }
 
-        KeplerianOrbit orbit = new KeplerianOrbit(
-                new PVCoordinates(position, velocity),
-                FramesFactory.getEME2000(),
-                initialDate,
-                Constants.EIGEN5C_EARTH_MU
-        );*/
-    }
+
+   }
 }
