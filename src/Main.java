@@ -35,7 +35,13 @@ public class Main {
         final DataProvidersManager manager = DataContext.getDefault().getDataProvidersManager();
         manager.addProvider(new DirectoryCrawler(orekitData));
 
-        // Initiate connection
+        // Initiate connection to Celestrak.org's page for ISS TLE data.
+        // Attempt to parse the data using the standard convention that Celestrak uses
+        // E.G.
+        // ISS (ZARYA)
+        // 1 25544U 98067A   23291.87631728  .00018713  00000+0  33066-3 0  9999
+        // 2 25544  51.6420  75.8545 0004681 115.6786  16.3560 15.50372001420974
+        //
         URI uri = null;
         String[] tle = new String[2];
         Scanner in;
